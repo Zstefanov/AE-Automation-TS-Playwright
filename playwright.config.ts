@@ -22,6 +22,7 @@ export default defineConfig({
         baseURL: 'http://automationexercise.com',
         trace: 'on-first-retry',
     },
+    reporter: [['html', { outputFolder: 'playwright-report' }]],
     projects: [
         {
             name: 'chromium',
