@@ -45,6 +45,14 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install
 
-      # Step 7: Run Playwright tests
+      # Step 7: Start Xvfb (virtual display)
+      - name: Start Xvfb
+        run: |
+          Xvfb :99 -screen 0 1920x1080x24 > /dev/null 2>&1 &
+          export DISPLAY=:99
+
+      # Step 8: Run Playwright tests
       - name: Run Playwright tests
         run: npx playwright test
+        env:
+          DISPLAY: :99
