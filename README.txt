@@ -4,9 +4,10 @@ This repository contains two separate API testing frameworks for testing the end
 Project Structure
 ├── playwright-ts/       # TypeScript + Playwright API testing framework
 └── README.md           # This file
+
 Frameworks Overview
 Playwright TypeScript Framework
-A modern Node.js based testing framework using Playwright’s API testing capabilities and TypeScript for type safety.
+A Node.js based testing framework using Playwright’s API testing capabilities and TypeScript for type safety.
 
 Key Features:
 
@@ -15,7 +16,7 @@ Modular architecture with utilities and helpers
 Comprehensive API endpoint testing
 Built-in reporting and debugging tools
 
-The project is deployed to Jenkins, and GitHub Actions.
+The project is deployed to Github Actions and Jenkins.
 
 It has parameterized launch options for all types of browsers and supports running with multiple workers.
 
