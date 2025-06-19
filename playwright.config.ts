@@ -13,7 +13,7 @@ export default defineConfig({
         headless: false,
         viewport: { width: 1920, height: 1080 },
         launchOptions: {
-            args: ['--start-maximized'],
+            // args: ['--start-maximized'],
             slowMo: 50, // Slow down operations for better visibility during debugging
         },
         ignoreHTTPSErrors: true,
