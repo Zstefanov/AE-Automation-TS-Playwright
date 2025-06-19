@@ -33,7 +33,9 @@ export default defineConfig({
         },
         {
             name: 'WebKit',
-            use: { ...devices['Desktop Safari'] },
+            use: { ...devices['Desktop Safari'],
+                viewport: { width: 1920, height: 1080 } // Adjust viewport for WebKit
+             },
         },
     ]
 });
