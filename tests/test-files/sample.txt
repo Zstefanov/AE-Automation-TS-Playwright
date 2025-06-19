@@ -1,0 +1,2 @@
+Sample text file for testing purposes.
+This file is used to demonstrate file reading and writing in tests.
