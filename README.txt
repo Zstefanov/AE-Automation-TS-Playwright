@@ -1,13 +1,12 @@
 QA Automation Project for Automation Exercise API
-This repository contains two separate API testing frameworks for testing the endpoints at Automation Exercise API List.
+This repository contains both front-end(ui, e2e) and back-end API testing for the Automation Exercise API List.
 
 Project Structure
-├── playwright-ts/       # TypeScript + Playwright API testing framework
-└── README.md           # This file
-
-Frameworks Overview
-Playwright TypeScript Framework
-A Node.js based testing framework using Playwright’s API testing capabilities and TypeScript for type safety.
+The project is structured to support both UI and API testing, with a clear separation of concerns.
+- `features/`: Contains Cucumber feature files for BDD-style testing.
+- `steps/`: Contains step definitions for the Cucumber feature files.       
+- `config/`: Contains configuration files for different environments and test settings.
+- `tests/`: Contains the actual test cases, both for UI and API.
 
 Key Features:
 
