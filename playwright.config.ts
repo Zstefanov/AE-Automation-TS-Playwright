@@ -31,11 +31,11 @@ export default defineConfig({
             name: 'Firefox',
             use: { ...devices['Desktop Firefox'] },
         },
-        {
-            name: 'WebKit',
-            use: { ...devices['Desktop Safari'],
-                viewport: { width: 1920, height: 1080 } // Adjust viewport for WebKit
-             },
-        },
+        // {
+        //     name: 'WebKit',
+        //     use: { ...devices['Desktop Safari'],
+        //         viewport: { width: 1920, height: 1080 } // Adjust viewport for WebKit
+        //      },
+        // },
     ]
 });
