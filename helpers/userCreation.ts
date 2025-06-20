@@ -113,7 +113,7 @@ export class UserActions {
 
     // 13. Click 'Continue'
     await page.getByRole('link', { name: 'Continue' }).click();
-    await page.waitForLoadState('networkidle', {timeout:40000});
+    await page.waitForTimeout(3000); // Wait for 3 seconds to ensure the page loads
 
     // Return the created user object
     return {
