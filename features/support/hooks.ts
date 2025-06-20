@@ -2,7 +2,7 @@ import { Before, After } from '@cucumber/cucumber';
 import { CustomWorld } from './world';
 import 'dotenv/config';
 
-Before(async function (this: CustomWorld) {
+Before({timeout: 30000}, async function (this: CustomWorld) {
     await this.openBrowser();
 });
 
