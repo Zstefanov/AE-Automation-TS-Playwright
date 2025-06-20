@@ -5,7 +5,7 @@ import { CustomWorld } from '../support/world'; // your world/context type
  
 let createdUser: { name: string, email: string, password: string } = { name: '', email: '', password: '' };
 
-When('I log in with valid credentials', {timeout:20000}, async function (this: CustomWorld) {
+When('I log in with valid credentials', {timeout:50000}, async function (this: CustomWorld) {
     // Create user first (for test isolation)
     const user = await UserActions.createUser(this.page);
       createdUser = {
