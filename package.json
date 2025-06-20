@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "test:pw": "playwright test",
-    "test:bdd": "cucumber-js --require-module ts-node/register --require features/step_definitions/**/*.ts --require features/support/**/*.ts features/features",
-    "test:bdd:only": "cucumber-js --require-module ts-node/register --require features/step_definitions/**/*.ts --require features/support/**/*.ts --tags @only features/features"
+    "test:pw": "playwright test --project=%BROWSER%",
+    "test:bdd": "cross-env BROWSER=%BROWSER% cucumber-js --require-module ts-node/register --require features/step_definitions/**/*.ts --require features/support/**/*.ts features/features",
+    "test:bdd:only": "cross-env BROWSER=%BROWSER% cucumber-js --require-module ts-node/register --require features/step_definitions/**/*.ts --require features/support/**/*.ts --tags @only features/features"
   },
   "keywords": [],
   "author": "gsstefanov91",
@@ -15,6 +15,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.53.0",
+    "cross-env": "^7.0.3",
     "playwright": "^1.53.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"

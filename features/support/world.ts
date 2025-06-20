@@ -1,5 +1,5 @@
 import { setWorldConstructor, World, IWorldOptions } from '@cucumber/cucumber';
-import { Browser, BrowserContext, Page, chromium, expect } from '@playwright/test';
+import { Browser, BrowserContext, Page, chromium, firefox, webkit, expect } from '@playwright/test';
 
 async function handleCookieConsent(page: Page) {
     try {
@@ -52,8 +52,28 @@ export class CustomWorld extends World {
         super(options);
     }
 
+    // async openBrowser() {
+    //     this.browser = await chromium.launch({ headless: false });
+    //     this.context = await this.browser.newContext();
+    //     this.page = await this.context.newPage();
+    //     await this.page.goto('https://automationexercise.com');
+    //     await handleCookieConsent(this.page);
+    // }
+
     async openBrowser() {
-        this.browser = await chromium.launch({ headless: false });
+        const browserName = process.env.BROWSER?.toLowerCase() || 'chromium';
+
+        const browserType = {
+            chromium,
+            firefox,
+            webkit
+        }[browserName];
+
+        if (!browserType) {
+            throw new Error(`Unsupported browser: ${browserName}`);
+        }
+
+        this.browser = await browserType.launch({ headless: false });
         this.context = await this.browser.newContext();
         this.page = await this.context.newPage();
         await this.page.goto('https://automationexercise.com');
