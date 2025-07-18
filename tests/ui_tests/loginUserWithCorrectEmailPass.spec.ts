@@ -12,7 +12,7 @@
 
 
 import { test, expect, type Page } from '@playwright/test';
-import { UserActions } from '../helpers/userCreation';
+import { UserActions } from '../../helpers/userCreation';
 
 
 // Define a test suite or a single test.

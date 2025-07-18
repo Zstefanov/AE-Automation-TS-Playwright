@@ -23,7 +23,7 @@
 // ' 22. Verify 'ACCOUNT DELETED!' and click 'Continue' button
 
 import { test, expect } from './baseTest';
-import { UserActions } from '../helpers/userCreation';
+import { UserActions } from '../../helpers/userCreation';
 import fs from 'fs';
 import path from 'path';
 

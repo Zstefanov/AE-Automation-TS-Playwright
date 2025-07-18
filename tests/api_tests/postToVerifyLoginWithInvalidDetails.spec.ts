@@ -5,7 +5,7 @@
 // Response Code: 404
 // Response Message: User not found!
 
-import { test, expect } from '../baseTest';
+import { test, expect } from '../ui_tests/baseTest';
 
 test('API 10: POST To Verify Login with invalid details (should return code 404 in message, status 200)', async ({ request }) => {
   const invalidEmail = 'invaliduser98763@example.com';

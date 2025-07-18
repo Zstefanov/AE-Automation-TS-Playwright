@@ -21,7 +21,7 @@
 // 20. Verify 'ACCOUNT DELETED!' and click 'Continue' button
 
 import { test, expect } from './baseTest';
-import { UserActions } from '../helpers/userCreation';
+import { UserActions } from '../../helpers/userCreation';
 
 test('Test Case 14: Place Order: Register while Checkout', async ({ page }) => {
     // 1. Steps 1 through 3 are handled by baseTest
@@ -78,7 +78,7 @@ test('Test Case 14: Place Order: Register while Checkout', async ({ page }) => {
     // 18. Verify success message 'Your order has been placed successfully!'
     const confirmationMessage = page.locator('p', { hasText: 'Congratulations! Your order has been confirmed!' });
     await expect(confirmationMessage).toBeVisible();
-    
+
     // 19. Click 'Delete Account' button
     await UserActions.deleteAccount(page);
 

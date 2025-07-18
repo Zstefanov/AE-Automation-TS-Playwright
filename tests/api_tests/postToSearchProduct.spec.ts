@@ -5,7 +5,7 @@
 // Response Code: 200
 // Response JSON: Searched products list
 
-import { test, expect } from '../baseTest';
+import { test, expect } from '../ui_tests/baseTest';
 
 test('API 5: POST To Search Product', async ({ request }) => {
   const searchTerm = 'tshirt';

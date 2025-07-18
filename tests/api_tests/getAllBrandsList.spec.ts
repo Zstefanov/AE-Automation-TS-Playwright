@@ -4,7 +4,7 @@
 // Response Code: 200
 // Response JSON: All brands list
 
-import { test, expect } from '../baseTest';
+import { test, expect } from '../ui_tests/baseTest';
 
 test('API 3: Get All Brands List', async ({ request }) => {
   const response = await request.get('/api/brandsList');

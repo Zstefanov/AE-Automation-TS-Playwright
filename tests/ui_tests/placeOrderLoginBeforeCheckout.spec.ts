@@ -18,7 +18,7 @@
 // 17. Verify 'ACCOUNT DELETED!' and click 'Continue' button
 
 import { test, expect } from './baseTest';
-import { UserActions } from '../helpers/userCreation';
+import { UserActions } from '../../helpers/userCreation';
 
 test('Test Case 16: Place Order: Login before Checkout', async ({ page }) => {
     // Steps 1 through 4 are handled by baseTest

@@ -5,7 +5,7 @@
 // Response Code: 400
 // Response Message: Bad request, email or password parameter is missing in POST request.
 
-import { test, expect } from '../baseTest';
+import { test, expect } from '../ui_tests/baseTest';
 
 test('API 8: POST To Verify Login without email parameter (should return code 400 in message, status 200)', async ({ request }) => {
   const response = await request.post('/api/verifyLogin', {

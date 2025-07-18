@@ -4,7 +4,7 @@
 // Response Code: 405
 // Response Message: This request method is not supported.
 
-import { test, expect } from '../baseTest';
+import { test, expect } from '../ui_tests/baseTest';
 
 test('API 4: PUT To All Brands List (should return code 405 in message, status 200)', async ({ request }) => {
   const response = await request.put('/api/brandsList');

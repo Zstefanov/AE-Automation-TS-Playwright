@@ -5,7 +5,7 @@
 // Response JSON: All products list
 
 
-import { test, expect } from '../baseTest';
+import { test, expect } from '../ui_tests/baseTest';
 
 test('API 1: Get All Products List', async ({ request }) => {
   const response = await request.get('/api/productsList');

@@ -17,7 +17,7 @@
 
 
 import { test, expect } from './baseTest';
-import { UserActions } from '../helpers/userCreation';
+import { UserActions } from '../../helpers/userCreation';
 
 test('Test Case 23: Verify address details in checkout page', async ({ page }) => {
     // 1-6. Register a new user using the helper method
@@ -42,7 +42,7 @@ test('Test Case 23: Verify address details in checkout page', async ({ page }) =
     // 11. Click Proceed To Checkout
     // The selector for 'Proceed To Checkout' may need adjustment if site markup differs
     await page.locator('a:has-text("Proceed To Checkout")').click();
-    
+
     // 12. Verify that the delivery address matches registration 
     const deliveryAddress = page.locator('ul#address_delivery');
     await expect(deliveryAddress).toContainText(user.firstName);
