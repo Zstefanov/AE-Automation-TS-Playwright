@@ -1,0 +1,16 @@
+config:
+  target: "https://automationexercise.com"
+  phases:
+    # Simulate warm-up: low arrival rate for 5 seconds
+    - duration: 5
+      arrivalRate: 2
+      name: "Warm-up"
+    # Main load test: 5 requests/second for 20 seconds
+    - duration: 20
+      arrivalRate: 5
+      name: "Main load"
+scenarios:
+  - name: "Home Page Load"
+    flow:
+      - get:
+          url: "/"
