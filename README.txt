@@ -14,6 +14,8 @@ Strong typing with TypeScript
 Modular architecture with utilities and helpers
 Comprehensive API endpoint testing
 Built-in reporting and debugging tools
+Performance testing capabilities
+Artillery (https://artillery.io/) for load and stress testing
 
 The project is deployed to Github Actions and Jenkins.
 
