@@ -6,7 +6,7 @@
   "scripts": {
     "test": "playwright test",
     "test:pw": "playwright test --project=%BROWSER%",
-    "test:load": "artillery run tests/performance_tests/basic-load-test.yaml",
+    "test:load": "artillery run performance_tests/basic-load-test.yaml --output performance/reports/report.json",
     "test:bdd": "cross-env BROWSER=%BROWSER% cucumber-js --require-module ts-node/register --require features/step_definitions/**/*.ts --require features/support/**/*.ts features/features",
     "test:bdd:only": "cross-env BROWSER=%BROWSER% cucumber-js --require-module ts-node/register --require features/step_definitions/**/*.ts --require features/support/**/*.ts --tags @only features/features"
   },

@@ -11,6 +11,9 @@ yarn-error.log*
 playwright-report/
 test-results/
 
+# Artillery reports
+performance/reports/
+
 # Build output
 dist/
 out/
