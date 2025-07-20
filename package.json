@@ -11,7 +11,7 @@
     "test:bdd:only": "cross-env BROWSER=%BROWSER% cucumber-js --require-module ts-node/register --require features/step_definitions/**/*.ts --require features/support/**/*.ts --tags @only features/features"
   },
   "keywords": [],
-  "author": "gsstefanov91",
+  "author": "Zs73fnv",
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^11.3.0",
