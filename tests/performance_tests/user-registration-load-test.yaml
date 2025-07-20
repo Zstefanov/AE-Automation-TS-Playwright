@@ -1,0 +1,49 @@
+config:
+  target: "https://automationexercise.com"
+  processor: "./userRegistrationLoadTest.js"
+  phases:
+    - name: "Spike"
+      arrivalCount: 20   # Launch 20 users immediately
+      duration: 5        # Hold for 5 seconds
+scenarios:
+  - name: "user_registration_spike"
+    flow:
+      # Generate random user
+      - function: "generateUser"
+
+      # Register user
+      - post:
+          url: "/api/createAccount"
+          form:
+            name: "{{ user.name }}"
+            email: "{{ user.email }}"
+            password: "{{ user.password }}"
+            title: "Mr"
+            birth_date: "1"
+            birth_month: "1"
+            birth_year: "1990"
+            firstname: "{{ user.firstname }}"
+            lastname: "{{ user.lastname }}"
+            company: "FakeCompany"
+            address1: "123 Main St"
+            address2: "Suite 100"
+            country: "United States"
+            zipcode: "12345"
+            state: "CA"
+            city: "Los Angeles"
+            mobile_number: "5551112233"
+          capture:
+            - json: "$.message"
+              as: "register_message"
+          expect:
+            - statusCode: 200
+
+      # Delete user
+      - delete:
+          url: "/api/deleteAccount"
+          form:
+            email: "{{ user.email }}"
+            password: "{{ user.password }}"
+          expect:
+            - statusCode: 200
+          beforeResponse: "checkDeleteResponse"
