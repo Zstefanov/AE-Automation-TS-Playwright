@@ -1,0 +1,17 @@
+config:
+  target: "https://automationexercise.com"
+  processor: "./loginNegativeLoadTest.js"
+  phases:
+    - name: "Constant Load"
+      arrivalRate: 4    # 4 users at all times
+      duration: 15      # for 15 seconds
+scenarios:
+  - name: "login_negative"
+    flow:
+      - function: "pickRandomInvalidUser"
+      - post:
+          url: "/api/verifyLogin"
+          form:
+            email: "{{ invalidLoginUser.email }}"
+            password: "{{ invalidLoginUser.password }}"
+          beforeResponse: "logNegativeLoginResponse"
