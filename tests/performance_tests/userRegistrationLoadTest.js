@@ -8,6 +8,7 @@ module.exports = {
   generateUser(context, events, done) {
     const uniqueId = randomId();
     const email = `testuser_${uniqueId}@example.com`;
+    // Hardcoded password for simplicity
     const password = "Password123!";
 
     // Attach user details to context.vars

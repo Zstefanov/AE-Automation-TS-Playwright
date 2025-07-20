@@ -1,0 +1,15 @@
+config:
+  target: "https://automationexercise.com"
+  processor: "./getProductListLoadTest.js"
+  phases:
+    - name: "Constant Load"
+      arrivalRate: 5      # 5 users at all times
+      duration: 15        # for 15 seconds
+scenarios:
+  - name: "critical_products_list"
+    flow:
+      - get:
+          url: "/products"
+          expect:
+            - statusCode: 200
+          beforeResponse: "logGetProductsResponse"
