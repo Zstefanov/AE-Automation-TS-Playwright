@@ -1,0 +1,19 @@
+config:
+  target: "https://automationexercise.com"
+  processor: "./loginLoadTest.js"
+  phases:
+    - name: "Constant Load"
+      arrivalRate: 4    # 4 users at all times
+      duration: 15      # for 15 seconds
+scenarios:
+  - name: "login_load"
+    flow:
+      - function: "pickRandomUser"
+      - post:
+          url: "/api/verifyLogin"
+          form:
+            email: "{{ loginUser.email }}"
+            password: "{{ loginUser.password }}"
+          expect:
+            - statusCode: 200
+          beforeResponse: "logLoginResponse"
