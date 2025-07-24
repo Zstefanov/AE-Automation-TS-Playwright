@@ -1,0 +1,20 @@
+config:
+  target: "https://automationexercise.com"
+  phases:
+    - name: "High Volume Search"
+      arrivalRate: 5     # 5 virtual users per second
+      duration: 15        # for 15 seconds
+scenarios:
+  - name: "product_search_high_volume"
+    flow:
+      - function: "pickRandomSearchTerm"
+      - post:
+          url: "/api/searchProduct"
+          form:
+            search_product: "{{ searchTerm }}"
+          beforeResponse: "logSearchResult"
+
+plugins:
+  custom:
+    # Reference your JS processor file (adjust the path as needed)
+    processor: "./productSearchLoadTest.js"
