@@ -1,0 +1,40 @@
+config:
+  target: "https://automationexercise.com"
+  processor: "./orderPlacementLoadTest.js"
+  phases:
+    - name: "Constant Load"
+      arrivalRate: 2    # 2 users at all times
+      duration: 5      # for 5 seconds
+scenarios:
+  - name: "checkout_order_placement"
+    flow:
+      - function: "pickRandomUser"
+      - get:
+          url: "/"
+      - post:
+          url: "/api/verifyLogin"
+          form:
+            email: "{{ orderUser.email }}"
+            password: "{{ orderUser.password }}"
+      - function: "pickRandomProductId"
+      - get:
+          url: "/add_to_cart/{{ productId }}"
+      - get:
+          url: "/view_cart"
+      - get:
+          url: "/checkout"
+      - get:
+          url: "/payment"
+          beforeResponse: "extractCsrfToken"
+      - post:
+          url: "/payment"
+          headers:
+            Referer: "https://automationexercise.com/payment"
+          form:
+            csrfmiddlewaretoken: "{{ csrf }}"
+            name_on_card: "Test User"
+            card_number: "1234 1234 1234 1234"
+            cvc: "123"
+            expiry_month: "12"
+            expiry_year: "2030"
+          beforeResponse: "logOrderResult"
