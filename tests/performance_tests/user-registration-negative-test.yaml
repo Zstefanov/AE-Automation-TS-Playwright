@@ -1,0 +1,24 @@
+config:
+  target: "https://automationexercise.com"
+  processor: "./userRegistrationNegativeTest.js"
+  phases:
+    - name: "negative_spike"
+      arrivalRate: 5
+      duration: 5
+scenarios:
+  - name: "user_registration_negative_already_used_email"
+    flow:
+      - function: "pickRandomRegisteredUser"
+      - get:
+          url: "/signup"
+          beforeResponse: "extractCsrfToken"
+      - post:
+          url: "/signup"
+          headers:
+            Referer: "https://automationexercise.com/signup"
+          form:
+            csrfmiddlewaretoken: "{{ csrf }}"
+            name: "{{ name }}"
+            email: "{{ email }}"
+            form_type: "signup"
+          beforeResponse: "logNegativeRegistration"
