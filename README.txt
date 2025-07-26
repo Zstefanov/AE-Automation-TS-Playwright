@@ -1,5 +1,6 @@
 QA Automation Project for Automation Exercise API
-This repository contains both front-end(ui, e2e) and back-end API testing for the Automation Exercise API List.
+This repository contains both front-end(ui, e2e), back-end API testing and load/stress testing 
+for the Automation Exercise test suite.
 
 Project Structure
 The project is structured to support both UI and API testing, with a clear separation of concerns.
